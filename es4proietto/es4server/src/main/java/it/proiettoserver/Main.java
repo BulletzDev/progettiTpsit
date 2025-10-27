@@ -3,14 +3,13 @@ package it.proiettoserver;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Main {
+public class Main{
     public static void main(String[] args) throws Exception {
-
         ServerSocket server = new ServerSocket(3000);
-        do{
+        do {
             Socket socket = server.accept();
-            MioThread t = new MioThread(socket);
+            Calculator t = new Calculator(socket);
             t.start();
-        }while(true);
+        } while (true);
     }
 }
