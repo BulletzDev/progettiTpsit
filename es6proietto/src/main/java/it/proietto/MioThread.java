@@ -43,7 +43,7 @@ public class MioThread extends Thread {
                 path += "index.html";
             }
 
-            path = path.contains("htdocs") ? path : "/htdocs" + path;
+            path = path.contains("htdocs") ? path : "htdocs" + path;
             System.out.println("Path richiesto: " + path);
             File file = new File(path);
 
