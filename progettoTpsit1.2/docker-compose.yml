@@ -1,0 +1,24 @@
+services:
+  my_annapepe:
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - 8081:80
+  my_maria_db:
+    image: mariadb:latest
+    environment:
+      - MARIADB_ROOT_PASSWORD=my-secret-pw
+    volumes:
+      - /home/informatica/Desktop/progettiTpsit/progettoTpsit1.2/mydb:/var/lib/mysql
+  my_pma:
+    image: phpmyadmin:latest
+    ports:
+      - 8080:80
+    volumes:
+      - /home/informatica/Desktop/progettiTpsit/progetto1.2/phpmyadmin:/etc/phpmyadmin/conf.d:ro
+    environment:
+      - PMA_HOST=my_maria_db
+
+
+
